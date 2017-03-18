@@ -68,7 +68,7 @@
                 <div class="intro-text">
                     <h1 class="name">Start Shock</h1>
                     <hr class="star-light">
-                    <form action="/getComment" method="POST" role="form">
+                    <form action="/search" method="POST" role="form">
                         <div class="form-group col-md-4 col-md-offset-4 floating-label-form-group center controls">
                             <label for="name"></label>
                             <input type="text" name="Comments[name]" class="form-control" placeholder="Start Words" id="name"
