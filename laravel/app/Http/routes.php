@@ -10,11 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::any('/search', ['as' => 'search', 'uses' => function() {
+		if ($query = Input::get('query',false)) {
+			$stories = Story::search($query);	
+		}
+		else {
+			$stories = Story::first();
+		}
+		return view('home');
+	}]);
 Route::get('/', function () {
-    return view('main');
+    return view('welcome');
 });
 
+Route::get('/main',function() {
+	echo "hello";
+});
 
 Route::any('/getComment', ['as' => 'post', 'uses' => 'MainController@getComment']);
 
