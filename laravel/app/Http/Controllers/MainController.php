@@ -4,11 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Story;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 
 class MainController extends Controller
 {
+    public function addData() {
+        $str = file_get_contents("E:/stories_cleaned25w.json");
+        $json = json_decode($str, true);
+        $len = count($json);
+
+        for ($x = 0;$x < $len;$x ++) {
+             $story = new Story();
+             $story->storyId = $json[$x]['storyId'];
+             $story->time_ts = $json[$x]['time_ts'];
+             $story->text = $json[$x]['text'];
+             $story->title = $json[$x]['title'];
+             $story->score = $json[$x]['score'];
+             $story->save();
+        }
+    }
     public function getComment(Request $request) {
         $stories = null;
         $name = "123";
@@ -17,6 +33,14 @@ class MainController extends Controller
             $name = $data['name'];
             if ($name) {
                 $stories = Story::search($name);
+               // $stories = Story::searchByQuery(array('match' => array('title' => $name)));
+//                $stories = Story::searchByQuery([
+//                    'multi_match'=> [
+//                        'query' => $name,
+//                        'fields' => ["title","text"]
+//                    ],
+//                ]);
+               // $stories = Story::searchByQuery(['match' => ['title' => $data]]);
             }
 
         }
