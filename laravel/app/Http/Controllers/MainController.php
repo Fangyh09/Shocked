@@ -11,6 +11,7 @@ class MainController extends Controller
 {
     public function getComment(Request $request) {
         $stories = null;
+        $name = "123";
         if ($request->isMethod('POST')) {
             $data = $request->input('Comments');
             $name = $data['name'];
@@ -22,7 +23,8 @@ class MainController extends Controller
 
         return view('detail',
             [
-                'stories' => $stories
+                'stories' => $stories,
+                'name' => $name
             ]);
     }
 
