@@ -31,6 +31,7 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::any('/addData', ['as' => 'post2', 'uses' => 'MainController@addData']);
 
 
 Route::get('/main',function() {
