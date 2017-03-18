@@ -64,8 +64,11 @@
     <div class="container" id="maincontent" tabindex="-1" style="height: 100%">
         <div class="row">
             <div class="col-md-7 col-md-offset-2">
+					<p>1111111111111</p>
                     <p style="word-break: break-all;
   word-wrap: break-word;">{{ $name }}</p>
+                  <!--  <p style="word-break: break-all;
+  word-wrap: break-word;">{{ $stories->title }}</p> -->
             </div>
             <div class="col-lg-12">
                 <!--                     <img class="img-responsive" src="img/profile.png" alt="">
