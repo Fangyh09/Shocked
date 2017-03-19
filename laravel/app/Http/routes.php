@@ -27,6 +27,10 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('/tmp', function () {
+    return view('tmp');
+});
+
 Route::get('/home', function () {
     return view('home');
 });

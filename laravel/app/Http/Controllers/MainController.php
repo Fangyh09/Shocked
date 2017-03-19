@@ -11,32 +11,25 @@ use App\Http\Requests;
 class MainController extends Controller
 {
     public function addData() {
-		echo "begin loading";
-		$str = file_get_contents(asset("stories_cleaned2w.json"));
-		echo "fini loading";
-        $json = json_decode($str, true);
-        $len = count($json);
-		
-        for ($x = 0;$x < $len;$x ++) {
-             $story = new Story();
-             $story->storyId = $json[$x]['id'];
-             $story->time_ts = $json[$x]['time_ts'];
-             $story->text = $json[$x]['text'];
-             $story->title = $json[$x]['title'];
-             $story->score = $json[$x]['score'];
-             $story->save();
-			 if ($x == 0) {
-				echo "begin";
-			 }
-			 if ($x % 1000 == 0) {
-				echo $x;
-			 }
-        }
-		echo "finish";
+//        $str = file_get_contents(asset('stories_test.txt'));
+//        $json = json_decode($str, true);
+//        $len = count($json);
+//
+//        for ($x = 0;$x < $len;$x ++) {
+//             $story = new Story();
+//             $story->storyId = $json[$x]['id'];
+//             $story->time_ts = $json[$x]['time_ts'];
+//             $story->text = $json[$x]['text'];
+//             $story->title = $json[$x]['title'];
+//             $story->score = $json[$x]['score'];
+//             $story->save();
+//        }
+//        echo "finish";
+
     }
     public function getComment(Request $request) {
         $stories = null;
-        $name = "123";
+        $name = null;
         if ($request->isMethod('POST')) {
             $data = $request->input('Comments');
             $name = $data['name'];
@@ -54,10 +47,10 @@ class MainController extends Controller
 
         }
 
-        return view('detail',
+        return view('tmp',
             [
                 'stories' => $stories,
-                'name' => $name
+                'name' => $name,
             ]);
     }
 
