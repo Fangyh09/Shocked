@@ -42,7 +42,7 @@ Route::get('/main',function() {
     return view('main');
 });
 
-Route::any('/getComment', ['as' => 'post', 'uses' => 'MainController@getComment']);
+Route::any('/getStories', ['as' => 'post', 'uses' => 'MainController@getComment']);
 
 /*
 |--------------------------------------------------------------------------

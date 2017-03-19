@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>News</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset("static/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
     <!-- Theme CSS -->
@@ -68,10 +68,10 @@
                 <div class="intro-text">
                     <h1 class="name">Start Shock</h1>
                     <hr class="star-light">
-                    <form action="/getComment" method="POST" role="form">
+                    <form action="/getStories" method="POST" role="form">
                         <div class="form-group col-md-4 col-md-offset-4 floating-label-form-group center controls">
                             <label for="name"></label>
-                            <input type="text" name="Comments[name]" class="form-control" placeholder="Start Words" id="name"
+                            <input type="text" name="Comments[name]" value="name" class="form-control" placeholder="Start Words" id="name"
                                   >
                             {{--<p class="help-block text-danger"></p>--}}
                         </div>

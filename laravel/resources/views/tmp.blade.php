@@ -126,13 +126,13 @@
 
 
 <div class="container">
-
-
+	<?php echo $out ?>
+	{{ $out  }}
     <?php foreach($stories as $story): ?>
         <div class="row row-content">
             <div class="col-xs-12 col-sm-3 col-sm-push-9">
                 <p style="padding:20px;"></p>
-                <h3 align=center><a href="#">You may like these also</a></h3>
+                <h3 align=center><a href="#">You may also like these</a></h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
                 <div class="media">
@@ -146,9 +146,9 @@
 
                             {{--<span class="label label-danger label-xs">Hot</span> <span class="badge">--}}
 
-                            {{ $story->score }}</span></h4>
-                            <p> {{ $story->text == "" ? $story->title : $story->text }}</p>
-                            <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                            VOTE ---{{ $story->score }}--- </span></h4>
+                            <p> {{ $story->text == "" ? $story->title : strip_tags($story->text) }}</p>
+                            <p><a class="btn btn-primary btn-xs" href="{{ $url->getUrlById($story->storyId) == '' ? '#' : '$url->getUrlById($story->storyId)' }}">More &raquo;</a></p>
                     </div>
                 </div>
 
