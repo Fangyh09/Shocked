@@ -64,8 +64,11 @@
     <div class="container" id="maincontent" tabindex="-1" style="height: 100%">
         <div class="row">
             <div class="col-md-7 col-md-offset-2">
+					<p>1111111111111</p>
                     <p style="word-break: break-all;
   word-wrap: break-word;">{{ $name }}</p>
+                  <!--  <p style="word-break: break-all;
+  word-wrap: break-word;">{{ $stories->title }}</p> -->
 
 
                <?php foreach($stories as $story): ?>
