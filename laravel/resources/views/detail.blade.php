@@ -67,20 +67,14 @@
 					<p>1111111111111</p>
                     <p style="word-break: break-all;
   word-wrap: break-word;">{{ $name }}</p>
-                  <!--  <p style="word-break: break-all;
-  word-wrap: break-word;">{{ $stories->title }}</p> -->
 
 
                <?php foreach($stories as $story): ?>
                 <p style="word-break: break-all;
   word-wrap: break-word;">{{ $story->text }}</p>
+                <p style="word-break: break-all;
+  word-wrap: break-word;">{{ $story->storyId }}</p>
                 <?php endforeach; ?>
-                {{--@foreach($stories as $story)--}}
-                {{--<div>--}}
-                {{--<h2>{{ $story->title }}</h2>--}}
-                {{--<div>{{ $story->text }}</div>--}}
-                {{--</div>--}}
-                {{--@endforeach--}}
 
             </div>
             <div class="col-lg-12">

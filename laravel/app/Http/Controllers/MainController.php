@@ -11,19 +11,28 @@ use App\Http\Requests;
 class MainController extends Controller
 {
     public function addData() {
-        $str = file_get_contents("E:/stories_cleaned25w.json");
+		echo "begin loading";
+		$str = file_get_contents(asset("stories_cleaned2w.json"));
+		echo "fini loading";
         $json = json_decode($str, true);
         $len = count($json);
-
+		
         for ($x = 0;$x < $len;$x ++) {
              $story = new Story();
-             $story->storyId = $json[$x]['storyId'];
+             $story->storyId = $json[$x]['id'];
              $story->time_ts = $json[$x]['time_ts'];
              $story->text = $json[$x]['text'];
              $story->title = $json[$x]['title'];
              $story->score = $json[$x]['score'];
              $story->save();
+			 if ($x == 0) {
+				echo "begin";
+			 }
+			 if ($x % 1000 == 0) {
+				echo $x;
+			 }
         }
+		echo "finish";
     }
     public function getComment(Request $request) {
         $stories = null;
